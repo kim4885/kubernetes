@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kubernetes.io/change-cause: version 1.14
+  name: app-deploy
+  namespace: default
+spec:
+  replicas: 12
+  selector:
+    matchLabels:
+      app: webui
+  template:
+    metadata:
+      labels:
+        app: webui
+    spec:
+      containers:
+      - image: nginx:1.14
+        name: web
+        ports:
+        - containerPort: 80
+          protocol: TCP

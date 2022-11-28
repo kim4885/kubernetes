@@ -1,0 +1,11 @@
+- name: "파일에 대한 설정입니다."
+  hosts: kube
+  gather_facts: no
+  tasks:
+  - name: "$HOME/.vimrc 파일에 대한 설정 작업을 진행합니다." 
+    copy:
+     src: files/vimrc.txt
+     dest: /root/.vimrc
+     owner: root
+     group: root
+     mode: '0644'

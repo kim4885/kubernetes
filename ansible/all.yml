@@ -1,0 +1,6 @@
+---
+- name: "Service Controll"
+  import_playbook: service.yml
+
+- name: "Environment Controll"
+  import_playbook: vimrc.yml

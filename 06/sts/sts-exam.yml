@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: sts-nginx
+spec:
+  replicas: 3
+  serviceName: sts-service
+  selector:
+    matchLabels:
+      app: webui
+  template:
+    metadata:
+      name: sts-pod-nginx
+      labels:
+        app: webui
+    spec:
+      containers:
+      - name: sts-container-nginx
+        image: nginx:1.14
+        ports:
+        - containerPort: 80
